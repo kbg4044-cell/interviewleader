@@ -338,67 +338,280 @@ app.get('/', (c) => {
             </p>
           </div>
           
-          {/* Success Stories */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
-                  김*영
+          {/* Success Stories Carousel */}
+          <div className="relative mb-16">
+            <div className="overflow-hidden">
+              <div id="testimonial-carousel" className="flex transition-transform duration-500 ease-in-out">
+                {/* Testimonial 1 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">김*영</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">삼성전자 합격</h4>
+                        <p className="text-sm text-gray-600">마케팅 → IT기획</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"3년간 이직 실패를 반복했는데, 면접리더님 덕분에 드디어 원하는 대기업에 합격했습니다. 체계적인 면접 전략이 정말 도움이 되었어요."</p>
+                  </div>
                 </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold text-primary">대기업 이직 성공</h4>
-                  <p className="text-sm text-gray-600">마케팅 → IT기획</p>
+
+                {/* Testimonial 2 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">박*수</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">LG화학 이직</h4>
+                        <p className="text-sm text-gray-600">영업 → 컨설턴트</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"경력 전환이 쉽지 않았는데, 저의 강점을 새롭게 발견하고 포지셔닝할 수 있었습니다. 연봉도 50% 이상 올랐어요!"</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 3 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">이*민</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">네이버 입사</h4>
+                        <p className="text-sm text-gray-600">2년 공백 → 개발자</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"2년 공백기가 있어서 자신감이 없었는데, 면접리더님과 함께 준비하면서 오히려 강점으로 어필할 수 있게 되었습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 4 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">최*진</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">카카오 합격</h4>
+                        <p className="text-sm text-gray-600">기획 → 데이터분석</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"완전히 다른 직무로 전환하는 것이 두려웠는데, 체계적인 로드맵 덕분에 꿈꿨던 테크 기업에 입사할 수 있었어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 5 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">정*현</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">현대자동차 입사</h4>
+                        <p className="text-sm text-gray-600">제조업 → 자동차</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"업계 전환에 대한 두려움이 컸는데, 면접리더님의 코칭으로 자신감을 갖고 도전해서 성공했습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 6 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">한*미</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">SK하이닉스 합격</h4>
+                        <p className="text-sm text-gray-600">화학 → 반도체</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"반도체 업계 진입이 쉽지 않다고 들었는데, 전략적인 접근 방법을 배워서 첫 지원에 합격할 수 있었어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 7 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">오*규</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">포스코 이직</h4>
+                        <p className="text-sm text-gray-600">중소기업 → 대기업</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"중소기업 경력만 있어서 대기업 이직이 막막했는데, 경력을 재포장하는 방법을 배워 성공할 수 있었습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 8 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">장*희</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">CJ ENM 합격</h4>
+                        <p className="text-sm text-gray-600">교육 → 미디어</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"미디어 업계는 처음이었지만, 면접리더님과 준비한 포트폴리오와 답변으로 꿈꿔왔던 회사에 입사했어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 9 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">윤*석</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">롯데 입사</h4>
+                        <p className="text-sm text-gray-600">스타트업 → 대기업</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"스타트업에서 대기업으로 가는 것이 쉽지 않다고 생각했는데, 경험을 체계화하는 방법을 배워 성공했습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 10 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">신*아</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">아모레퍼시픽 합격</h4>
+                        <p className="text-sm text-gray-600">의료 → 화장품</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"의료업계에서 화장품으로 전환하는 것이 가능할까 의심스러웠는데, 전문적인 가이드 덕분에 성공했어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 11 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">임*우</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">KT 이직</h4>
+                        <p className="text-sm text-gray-600">금융 → 통신</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"금융권에서 통신으로 업종을 바꾸는 것이 어려웠지만, 체계적인 준비로 원하는 회사에 합격할 수 있었습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 12 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">조*영</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">두산 입사</h4>
+                        <p className="text-sm text-gray-600">서비스업 → 제조업</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"제조업 경험이 전혀 없었는데도, 면접리더님의 코칭으로 자신감을 갖고 도전해서 합격했어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 13 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">강*민</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">GS건설 합격</h4>
+                        <p className="text-sm text-gray-600">건축 → 건설</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"건설업계 대기업 진입이 까다롭다고 들었는데, 전략적인 면접 준비로 한 번에 성공할 수 있었습니다."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 14 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">서*준</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">한화시스템 이직</h4>
+                        <p className="text-sm text-gray-600">IT → 방산</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"방산업계는 특수한 분야라 준비가 어려웠는데, 맞춤형 코칭 덕분에 원하는 포지션에 합격했어요."</p>
+                  </div>
+                </div>
+
+                {/* Testimonial 15 */}
+                <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                  <div className="bg-gray-50 p-6 rounded-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">배*연</div>
+                      <div className="ml-3">
+                        <h4 className="font-semibold text-primary">신한은행 입사</h4>
+                        <p className="text-sm text-gray-600">공백기 1년 → 금융</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 italic">"1년 공백기 때문에 고민이 많았는데, 면접리더님과 함께 준비해서 안정적인 금융권에 취업할 수 있었습니다."</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-700 italic">
-                "3년간 이직 실패를 반복했는데, 면접리더님 덕분에 드디어 원하는 대기업에 합격했습니다. 
-                체계적인 면접 전략이 정말 도움이 되었어요."
-              </p>
             </div>
-            
-            <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
-                  박*수
-                </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold text-primary">연봉 50% 상승</h4>
-                  <p className="text-sm text-gray-600">영업 → 컨설턴트</p>
-                </div>
+
+            {/* Carousel Controls */}
+            <div className="flex justify-center items-center mt-8 space-x-4">
+              <button id="prev-btn" className="bg-accent text-white p-3 rounded-full hover:bg-blue-600 transition-colors">
+                <i className="fas fa-chevron-left"></i>
+              </button>
+              <div className="flex space-x-2">
+                <button class="carousel-dot w-3 h-3 rounded-full bg-accent" data-slide="0"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-slide="3"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-slide="4"></button>
               </div>
-              <p className="text-gray-700 italic">
-                "경력 전환이 쉽지 않았는데, 저의 강점을 새롭게 발견하고 포지셔닝할 수 있었습니다. 
-                연봉도 50% 이상 올랐어요!"
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
-                  이*민
-                </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold text-primary">공백기 극복</h4>
-                  <p className="text-sm text-gray-600">2년 공백 → 스타트업</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">
-                "2년 공백기가 있어서 자신감이 없었는데, 면접리더님과 함께 준비하면서 
-                오히려 강점으로 어필할 수 있게 되었습니다."
-              </p>
+              <button id="next-btn" className="bg-accent text-white p-3 rounded-full hover:bg-blue-600 transition-colors">
+                <i className="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
           
-          {/* Partner Companies */}
+          {/* Success Companies */}
           <div className="text-center">
-            <h3 className="text-2xl font-semibold text-primary mb-8">협업 기업</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              <div className="text-2xl font-bold text-gray-500">Coca-Cola</div>
-              <div className="text-2xl font-bold text-gray-500">KOEN</div>
-              <div className="text-2xl font-bold text-gray-500">Hanil</div>
-              <div className="text-2xl font-bold text-gray-500">CJ</div>
-              <div className="text-2xl font-bold text-gray-500">J&J</div>
-              <div className="text-2xl font-bold text-gray-500">Hyundai</div>
+            <h3 className="text-2xl font-semibold text-primary mb-8">주요 합격 기업</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">삼성전자</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">LG화학</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">네이버</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">카카오</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">현대자동차</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">SK하이닉스</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">포스코</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">CJ ENM</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">롯데</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">아모레퍼시픽</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">KT</div>
+              </div>
+              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
+                <div className="text-xl font-bold text-gray-700">신한은행</div>
+              </div>
             </div>
           </div>
         </div>

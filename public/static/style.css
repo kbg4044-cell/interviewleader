@@ -206,3 +206,71 @@ button, a, input, textarea {
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
+
+/* Testimonial Carousel Styles */
+.testimonial-carousel {
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel Controls */
+.carousel-dot {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Company Logo Grid */
+.company-grid-item {
+  transition: all 0.3s ease;
+}
+
+.company-grid-item:hover {
+  transform: scale(1.05);
+  background-color: #f8fafc;
+}
+
+/* Mobile Carousel Adjustments */
+@media (max-width: 768px) {
+  .testimonial-carousel {
+    overflow-x: hidden;
+  }
+  
+  .testimonial-card {
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-controls {
+    margin-top: 1rem;
+  }
+}
+
+/* Smooth transitions for carousel */
+#testimonial-carousel {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Loading state for carousel */
+.carousel-loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Accessibility improvements for carousel */
+.carousel-dot:focus,
+#prev-btn:focus,
+#next-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
