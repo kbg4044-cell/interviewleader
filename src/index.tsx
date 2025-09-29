@@ -3,7 +3,12 @@ import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
 
-const app = new Hono()
+type Bindings = {
+  NOTION_API_KEY: string
+  NOTION_DATABASE_ID: string
+}
+
+const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS for API routes
 app.use('/api/*', cors())
@@ -14,23 +19,150 @@ app.use('/static/*', serveStatic({ root: './public' }))
 // Use renderer for all routes
 app.use(renderer)
 
+// Notion API 함수들
+async function createNotionPage(apiKey: string, databaseId: string, name: string, email: string, message: string) {
+  const url = 'https://api.notion.com/v1/pages';
+  
+  const body = {
+    parent: {
+      database_id: databaseId
+    },
+    properties: {
+      '이름': {
+        title: [
+          {
+            text: {
+              content: name
+            }
+          }
+        ]
+      },
+      '이메일': {
+        email: email
+      },
+      '문의내용': {
+        rich_text: [
+          {
+            text: {
+              content: message
+            }
+          }
+        ]
+      },
+      '접수일시': {
+        date: {
+          start: new Date().toISOString()
+        }
+      },
+      '상태': {
+        select: {
+          name: '신규'
+        }
+      }
+    }
+  };
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+      'Notion-Version': '2022-06-28'
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Notion API Error: ${response.status} - ${errorText}`);
+  }
+
+  return await response.json();
+}
+
 // API Routes
 app.post('/api/contact', async (c) => {
   try {
+    const { env } = c
     const body = await c.req.json()
     const { name, email, message } = body
     
-    // TODO: 실제 구현에서는 Notion API 또는 Google Sheets API로 데이터 저장
-    console.log('Contact form submission:', { name, email, message })
+    // 입력 데이터 검증
+    if (!name || !email || !message) {
+      return c.json({ 
+        success: false, 
+        message: '모든 필드를 입력해주세요.' 
+      }, 400)
+    }
     
-    return c.json({ 
-      success: true, 
-      message: '문의가 성공적으로 전송되었습니다.' 
-    })
+    // 이메일 형식 검증
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return c.json({ 
+        success: false, 
+        message: '올바른 이메일 주소를 입력해주세요.' 
+      }, 400)
+    }
+    
+    // 이름 길이 검증
+    if (name.length < 2 || name.length > 50) {
+      return c.json({ 
+        success: false, 
+        message: '이름은 2-50자 사이로 입력해주세요.' 
+      }, 400)
+    }
+    
+    // 문의내용 길이 검증
+    if (message.length < 10 || message.length > 1000) {
+      return c.json({ 
+        success: false, 
+        message: '문의내용은 10-1000자 사이로 입력해주세요.' 
+      }, 400)
+    }
+    
+    // Notion API 키와 데이터베이스 ID 확인
+    const notionApiKey = env?.NOTION_API_KEY
+    const notionDatabaseId = env?.NOTION_DATABASE_ID
+    
+    if (!notionApiKey || !notionDatabaseId) {
+      console.log('Notion 설정이 없어 콘솔에만 출력:', { name, email, message })
+      return c.json({ 
+        success: true, 
+        message: '문의가 접수되었습니다. (개발 모드: 콘솔 출력)' 
+      })
+    }
+    
+    // Notion에 데이터 저장
+    try {
+      await createNotionPage(notionApiKey, notionDatabaseId, name, email, message)
+      
+      return c.json({ 
+        success: true, 
+        message: '문의가 성공적으로 전송되었습니다. 24시간 내에 답변드리겠습니다.' 
+      })
+    } catch (notionError) {
+      console.error('Notion API Error:', notionError)
+      
+      // Notion 저장 실패 시 폴백으로 콘솔 출력
+      console.log('Notion 저장 실패, 콘솔 출력:', { 
+        timestamp: new Date().toISOString(),
+        name, 
+        email, 
+        message,
+        error: notionError.message 
+      })
+      
+      return c.json({ 
+        success: true, 
+        message: '문의가 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.' 
+      })
+    }
+    
   } catch (error) {
+    console.error('Contact form error:', error)
     return c.json({ 
       success: false, 
-      message: '문의 전송 중 오류가 발생했습니다.' 
+      message: '문의 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.' 
     }, 500)
   }
 })
