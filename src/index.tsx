@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
-import { BasicServicePage, ProServicePage, AdvancedServicePage } from './components'
+import { BasicServicePage, StandardServicePage, PremiumServicePage } from './components'
 
 type Bindings = {
   NOTION_API_KEY: string
@@ -344,31 +344,31 @@ app.get('/', (c) => {
             <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300" data-aos="fade-up" data-aos-delay="100">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-primary mb-2">베이직</h3>
-                <div className="text-3xl font-bold text-accent mb-4">79만원</div>
-                <div className="text-gray-600">1개월 과정</div>
+                <div className="text-3xl font-bold text-accent mb-4">96만원</div>
+                <div className="text-gray-600">2개월 과정</div>
               </div>
               
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>온라인 코칭 6회 (1회당 60분+)</span>
+                  <span>온라인 코칭 8회 (1회당 60분+)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>지원회사 1곳 서류 또는 면접 중 선택 영역 집중 강화</span>
+                  <span>목표 직무 명확한 분을 위한 효율적 이직 준비</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>목표 기업 맞춤형 이직 전략 수립</span>
+                  <span>서류 + 면접 기본 완성</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>기간 내 상시 질의응답 (카카오톡)</span>
+                  <span>실용적인 실행 가이드 제공</span>
                 </li>
               </ul>
               
               <div className="text-sm text-gray-600 mb-6">
-                <strong>추천 대상:</strong> 직무가 명확하고 서류/면접 한 영역만 집중 개선이 필요한 분
+                <strong>추천 대상:</strong> 목표가 명확하고 효율적인 이직 준비가 필요한 분
               </div>
               
               <div className="space-y-3">
@@ -385,36 +385,36 @@ app.get('/', (c) => {
             <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-accent transform scale-105" data-aos="fade-up" data-aos-delay="200">
               <div className="text-center mb-6">
                 <div className="bg-accent text-white text-sm px-3 py-1 rounded-full inline-block mb-2">인기</div>
-                <h3 className="text-2xl font-bold text-primary mb-2">프로</h3>
-                <div className="text-3xl font-bold text-accent mb-4">149만원</div>
-                <div className="text-gray-600">2개월 과정</div>
+                <h3 className="text-2xl font-bold text-primary mb-2">스탠다드</h3>
+                <div className="text-3xl font-bold text-accent mb-4">150만원</div>
+                <div className="text-gray-600">4개월 과정</div>
               </div>
               
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>온라인 코칭 10회 (1회당 60분+)</span>
+                  <span>온라인 코칭 16회 (1회당 60분+)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>동일 직무 환승이직 특화</span>
+                  <span>중견·대기업 진입 특화</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>서류부터 면접까지 맞춤형 완벽 대비</span>
+                  <span>체계적인 연봉 상승 전략</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>이력서/경력기술서/자소서 첨삭</span>
+                  <span>16주 단계별 커리어 성장 프로그램</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>포트폴리오 구성 기획/방향성 제시</span>
+                  <span>3개월 애프터 케어 제공</span>
                 </li>
               </ul>
               
               <div className="text-sm text-gray-600 mb-6">
-                <strong>추천 대상:</strong> 전과정 맞춤 코칭 필요자, 환승 이직 목표자
+                <strong>추천 대상:</strong> 중견·대기업 진입과 연봉 상승을 목표로 하는 분
               </div>
               
               <div className="space-y-3">
@@ -430,40 +430,40 @@ app.get('/', (c) => {
             {/* Advanced Plan */}
             <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300" data-aos="fade-up" data-aos-delay="300">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-primary mb-2">어드밴스드</h3>
-                <div className="text-3xl font-bold text-accent mb-4">239만원</div>
-                <div className="text-gray-600">4개월 과정</div>
+                <h3 className="text-2xl font-bold text-primary mb-2">프리미엄</h3>
+                <div className="text-3xl font-bold text-accent mb-4">225만원</div>
+                <div className="text-gray-600">6개월 과정</div>
               </div>
               
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>온라인 코칭 20회 (1회당 60분)</span>
+                  <span>온라인 코칭 24회 (1회당 90분)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>커리어 방향성 재정립</span>
+                  <span>커리어 전환 및 고난도 이직 특화</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>맞춤형 커리어 전환 전략</span>
+                  <span>리더십 기회 획득 전략</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>장기적 성장 로드맵 설계</span>
+                  <span>24주 전략적 커리어 마스터플랜</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
-                  <span>고난도 면접 대응 전략</span>
+                  <span>6개월 애프터 케어 + 특별 혜택</span>
                 </li>
               </ul>
               
               <div className="text-sm text-gray-600 mb-6">
-                <strong>추천 대상:</strong> 물경력 극복, 긴 공백기, 다중 직무 고민, 장기 커리어 설계 필요자
+                <strong>추천 대상:</strong> 커리어 전환, 고난도 이직, 리더십 진출을 목표로 하는 분
               </div>
               
               <div className="space-y-3">
-                <a href="/services/advanced" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
+                <a href="/services/premium" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
                   자세히 보기
                 </a>
                 <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
@@ -896,12 +896,12 @@ app.get('/services/basic', (c) => {
   return c.render(<BasicServicePage />)
 })
 
-app.get('/services/pro', (c) => {
-  return c.render(<ProServicePage />)
+app.get('/services/standard', (c) => {
+  return c.render(<StandardServicePage />)
 })
 
-app.get('/services/advanced', (c) => {
-  return c.render(<AdvancedServicePage />)
+app.get('/services/premium', (c) => {
+  return c.render(<PremiumServicePage />)
 })
 
 export default app
