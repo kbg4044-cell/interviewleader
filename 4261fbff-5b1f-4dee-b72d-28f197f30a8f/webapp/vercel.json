@@ -1,0 +1,17 @@
+{
+  "functions": {
+    "dist/_worker.js": {
+      "runtime": "edge"
+    }
+  },
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/_worker.js"
+    }
+  ]
+}
