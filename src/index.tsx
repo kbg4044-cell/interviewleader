@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { renderer } from './renderer'
+import { BasicServicePage, ProServicePage, AdvancedServicePage } from './components'
 
 type Bindings = {
   NOTION_API_KEY: string
@@ -54,7 +55,7 @@ async function createNotionPage(apiKey: string, databaseId: string, name: string
           start: new Date().toISOString()
         }
       },
-      '상태': {
+      'Select': {
         select: {
           name: '신규'
         }
@@ -370,9 +371,14 @@ app.get('/', (c) => {
                 <strong>추천 대상:</strong> 직무가 명확하고 서류/면접 한 영역만 집중 개선이 필요한 분
               </div>
               
-              <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
-                상담 신청
-              </button>
+              <div className="space-y-3">
+                <a href="/services/basic" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
+                  자세히 보기
+                </a>
+                <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
+                  상담 신청
+                </button>
+              </div>
             </div>
 
             {/* Pro Plan */}
@@ -411,9 +417,14 @@ app.get('/', (c) => {
                 <strong>추천 대상:</strong> 전과정 맞춤 코칭 필요자, 환승 이직 목표자
               </div>
               
-              <button className="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
-                상담 신청
-              </button>
+              <div className="space-y-3">
+                <a href="/services/pro" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
+                  자세히 보기
+                </a>
+                <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
+                  상담 신청
+                </button>
+              </div>
             </div>
 
             {/* Advanced Plan */}
@@ -451,9 +462,14 @@ app.get('/', (c) => {
                 <strong>추천 대상:</strong> 물경력 극복, 긴 공백기, 다중 직무 고민, 장기 커리어 설계 필요자
               </div>
               
-              <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
-                상담 신청
-              </button>
+              <div className="space-y-3">
+                <a href="/services/advanced" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
+                  자세히 보기
+                </a>
+                <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
+                  상담 신청
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -873,6 +889,19 @@ app.get('/', (c) => {
       </footer>
     </div>
   )
+})
+
+// Service Detail Pages
+app.get('/services/basic', (c) => {
+  return c.render(<BasicServicePage />)
+})
+
+app.get('/services/pro', (c) => {
+  return c.render(<ProServicePage />)
+})
+
+app.get('/services/advanced', (c) => {
+  return c.render(<AdvancedServicePage />)
 })
 
 export default app
