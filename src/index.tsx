@@ -375,15 +375,23 @@ app.get('/', (c) => {
             </p>
           </div>
           
+          {/* Popular Badge - positioned above all cards */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-accent text-white text-sm px-6 py-3 rounded-full font-semibold shadow-lg">
+              <i className="fas fa-star mr-2"></i>
+              인기
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Basic Plan */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300 relative" data-aos="fade-up" data-aos-delay="100">
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300 h-full flex flex-col" data-aos="fade-up" data-aos-delay="100">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-primary mb-2">베이직</h3>
                 <div className="text-gray-600">2개월 집중 과정</div>
               </div>
               
-              <ul className="space-y-4 mb-8 min-h-[200px]">
+              <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
                   <span>온라인 코칭 8회 (1회당 60분+)</span>
@@ -402,11 +410,11 @@ app.get('/', (c) => {
                 </li>
               </ul>
               
-              <div className="text-sm text-gray-600 mb-6 min-h-[48px]">
+              <div className="text-sm text-gray-600 mb-6">
                 <strong>추천 대상:</strong> 목표가 명확하고 효율적인 이직 준비가 필요한 분
               </div>
               
-              <div className="space-y-3">
+              <div className="space-y-3 mt-auto">
                 <a href="/services/basic" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
                   자세히 보기
                 </a>
@@ -417,67 +425,57 @@ app.get('/', (c) => {
             </div>
 
             {/* Standard Plan */}
-            <div className="relative">
-              {/* Popular Badge - positioned above Standard card */}
-              <div className="flex justify-center mb-3">
-                <div className="bg-accent text-white text-sm px-4 py-2 rounded-full font-semibold">
-                  <i className="fas fa-star mr-1"></i>
-                  인기
-                </div>
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-accent transform scale-105 h-full flex flex-col" data-aos="fade-up" data-aos-delay="200">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-primary mb-2">스탠다드</h3>
+                <div className="text-gray-600">4개월 전문 과정</div>
               </div>
               
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-accent transform scale-105 relative" data-aos="fade-up" data-aos-delay="200">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-primary mb-2">스탠다드</h3>
-                  <div className="text-gray-600">4개월 전문 과정</div>
-                </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-start space-x-3">
+                  <i className="fas fa-check text-accent mt-1"></i>
+                  <span>온라인 코칭 16회 (1회당 60분+)</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <i className="fas fa-check text-accent mt-1"></i>
+                  <span>중견·대기업 진입 특화</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <i className="fas fa-check text-accent mt-1"></i>
+                  <span>체계적인 연봉 상승 전략</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <i className="fas fa-check text-accent mt-1"></i>
+                  <span>16주 단계별 커리어 성장 프로그램</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <i className="fas fa-check text-accent mt-1"></i>
+                  <span>3개월 애프터 케어 제공</span>
+                </li>
+              </ul>
               
-                <ul className="space-y-4 mb-8 min-h-[200px]">
-                  <li className="flex items-start space-x-3">
-                    <i className="fas fa-check text-accent mt-1"></i>
-                    <span>온라인 코칭 16회 (1회당 60분+)</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <i className="fas fa-check text-accent mt-1"></i>
-                    <span>중견·대기업 진입 특화</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <i className="fas fa-check text-accent mt-1"></i>
-                    <span>체계적인 연봉 상승 전략</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <i className="fas fa-check text-accent mt-1"></i>
-                    <span>16주 단계별 커리어 성장 프로그램</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <i className="fas fa-check text-accent mt-1"></i>
-                    <span>3개월 애프터 케어 제공</span>
-                  </li>
-                </ul>
-                
-                <div className="text-sm text-gray-600 mb-6 min-h-[48px]">
-                  <strong>추천 대상:</strong> 중견·대기업 진입과 연봉 상승을 목표로 하는 분
-                </div>
-                
-                <div className="space-y-3">
-                  <a href="/services/standard" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
-                    자세히 보기
-                  </a>
-                  <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
-                    상담 신청
-                  </button>
-                </div>
+              <div className="text-sm text-gray-600 mb-6">
+                <strong>추천 대상:</strong> 중견·대기업 진입과 연봉 상승을 목표로 하는 분
+              </div>
+              
+              <div className="space-y-3 mt-auto">
+                <a href="/services/standard" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
+                  자세히 보기
+                </a>
+                <button className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors smooth-scroll" onClick="scrollToSection('contact')">
+                  상담 신청
+                </button>
               </div>
             </div>
 
             {/* Premium Plan */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300 relative" data-aos="fade-up" data-aos-delay="300">
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-t-4 border-gray-300 h-full flex flex-col" data-aos="fade-up" data-aos-delay="300">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-primary mb-2">프리미엄</h3>
                 <div className="text-gray-600">6개월 완성 과정</div>
               </div>
               
-              <ul className="space-y-4 mb-8 min-h-[200px]">
+              <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-start space-x-3">
                   <i className="fas fa-check text-accent mt-1"></i>
                   <span>온라인 코칭 24회 (1회당 90분)</span>
@@ -500,11 +498,11 @@ app.get('/', (c) => {
                 </li>
               </ul>
               
-              <div className="text-sm text-gray-600 mb-6 min-h-[48px]">
+              <div className="text-sm text-gray-600 mb-6">
                 <strong>추천 대상:</strong> 커리어 전환, 고난도 이직, 리더십 진출을 목표로 하는 분
               </div>
               
-              <div className="space-y-3">
+              <div className="space-y-3 mt-auto">
                 <a href="/services/premium" className="block w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center">
                   자세히 보기
                 </a>
@@ -521,10 +519,10 @@ app.get('/', (c) => {
       <section id="case" className="py-20 bg-white" data-aos="fade-up">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-6">성공 사례</h2>
+            <h2 className="text-4xl font-bold text-primary mb-6">합격 사례</h2>
             <div className="w-20 h-1 bg-accent mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              면접리더와 함께한 고객들의 실제 성공 후기를 확인해보세요
+              면접리더와 함께한 고객들의 실제 합격 후기를 확인해보세요
             </p>
           </div>
           
@@ -535,17 +533,10 @@ app.get('/', (c) => {
                 {/* Testimonial 1 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
-                        alt="김영훈님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">김*영 님</h4>
-                        <p className="text-sm text-gray-600">삼성전자 합격</p>
-                        <p className="text-xs text-gray-500">마케팅 → IT기획</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">김*영 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">삼성전자 합격</p>
+                      <p className="text-xs text-gray-500">마케팅 → IT기획</p>
                     </div>
                     <p className="text-gray-700 italic">"3년간 이직 실패를 반복했는데, 면접리더님 덕분에 드디어 원하는 대기업에 합격했습니다. 체계적인 면접 전략이 정말 도움이 되었어요."</p>
                   </div>
@@ -554,17 +545,10 @@ app.get('/', (c) => {
                 {/* Testimonial 2 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                        alt="박진수님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">박*수 님</h4>
-                        <p className="text-sm text-gray-600">LG화학 합격</p>
-                        <p className="text-xs text-gray-500">영업 → 컨설턴트</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">박*수 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">LG화학 합격</p>
+                      <p className="text-xs text-gray-500">영업 → 컨설턴트</p>
                     </div>
                     <p className="text-gray-700 italic">"경력 전환이 쉽지 않았는데, 저의 강점을 새롭게 발견하고 포지셔닝할 수 있었습니다. 연봉도 50% 이상 올랐어요!"</p>
                   </div>
@@ -573,17 +557,10 @@ app.get('/', (c) => {
                 {/* Testimonial 3 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1494790108755-2616b612b172?w=150&h=150&fit=crop&crop=face" 
-                        alt="이수민님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">이*민 님</h4>
-                        <p className="text-sm text-gray-600">네이버 합격</p>
-                        <p className="text-xs text-gray-500">2년 공백 → 개발자</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">이*민 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">네이버 합격</p>
+                      <p className="text-xs text-gray-500">2년 공백 → 개발자</p>
                     </div>
                     <p className="text-gray-700 italic">"2년 공백기가 있어서 자신감이 없었는데, 면접리더님과 함께 준비하면서 오히려 강점으로 어필할 수 있게 되었습니다."</p>
                   </div>
@@ -592,17 +569,10 @@ app.get('/', (c) => {
                 {/* Testimonial 4 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" 
-                        alt="최유진님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">최*진 님</h4>
-                        <p className="text-sm text-gray-600">카카오 합격</p>
-                        <p className="text-xs text-gray-500">기획 → 데이터분석</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">최*진 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">카카오 합격</p>
+                      <p className="text-xs text-gray-500">기획 → 데이터분석</p>
                     </div>
                     <p className="text-gray-700 italic">"완전히 다른 직무로 전환하는 것이 두려웠는데, 체계적인 로드맵 덕분에 꿈꿨던 테크 기업에 입사할 수 있었어요."</p>
                   </div>
@@ -611,17 +581,10 @@ app.get('/', (c) => {
                 {/* Testimonial 5 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" 
-                        alt="정태현님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">정*현 님</h4>
-                        <p className="text-sm text-gray-600">현대자동차 합격</p>
-                        <p className="text-xs text-gray-500">제조업 → 자동차</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">정*현 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">현대자동차 합격</p>
+                      <p className="text-xs text-gray-500">제조업 → 자동차</p>
                     </div>
                     <p className="text-gray-700 italic">"업계 전환에 대한 두려움이 컸는데, 면접리더님의 코칭으로 자신감을 갖고 도전해서 성공했습니다."</p>
                   </div>
@@ -630,17 +593,10 @@ app.get('/', (c) => {
                 {/* Testimonial 6 */}
                 <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                   <div className="bg-gray-50 p-6 rounded-lg h-full">
-                    <div className="flex items-center mb-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face" 
-                        alt="한수미님" 
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="ml-3">
-                        <h4 className="font-semibold text-primary">한*미 님</h4>
-                        <p className="text-sm text-gray-600">SK하이닉스 합격</p>
-                        <p className="text-xs text-gray-500">화학 → 반도체</p>
-                      </div>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-primary mb-1">한*미 님</h4>
+                      <p className="text-sm text-gray-600 mb-1">SK하이닉스 합격</p>
+                      <p className="text-xs text-gray-500">화학 → 반도체</p>
                     </div>
                     <p className="text-gray-700 italic">"반도체 업계 진입이 쉽지 않다고 들었는데, 전략적인 접근 방법을 배워서 첫 지원에 합격할 수 있었어요."</p>
                   </div>
@@ -791,49 +747,7 @@ app.get('/', (c) => {
               </button>
             </div>
           </div>
-          
-          {/* Success Companies */}
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold text-primary mb-8">주요 합격 기업</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">삼성전자</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">LG화학</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">네이버</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">카카오</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">현대자동차</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">SK하이닉스</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">포스코</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">CJ ENM</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">롯데</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">아모레퍼시픽</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">KT</div>
-              </div>
-              <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                <div className="text-xl font-bold text-gray-700">신한은행</div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
