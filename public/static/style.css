@@ -190,10 +190,80 @@ button, a, input, textarea {
 
 /* Gradient Text Effect */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #8324ff, #b347ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Navigation Dropdown Effects */
+.nav-dropdown {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(-10px);
+}
+
+.nav-dropdown.show {
+  transform: translateY(0);
+}
+
+/* Hero Section Background Pattern */
+.hero-bg-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(131, 36, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(131, 36, 255, 0.2) 0%, transparent 50%);
+}
+
+/* Purple Theme Button Effects */
+.btn-primary-purple {
+  background: linear-gradient(135deg, #8324ff, #9333ea);
+  box-shadow: 0 4px 15px rgba(131, 36, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(131, 36, 255, 0.4);
+}
+
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8324ff, transparent);
+}
+
+/* Card Gradient Border */
+.card-gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(131, 36, 255, 0.1), rgba(147, 51, 234, 0.1));
+  border: 1px solid rgba(131, 36, 255, 0.2);
+}
+
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, #8324ff, #9333ea);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Text Glow Effect */
+.text-glow {
+  text-shadow: 0 0 20px rgba(131, 36, 255, 0.5);
+}
+
+/* Parallax Effect */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Floating Animation */

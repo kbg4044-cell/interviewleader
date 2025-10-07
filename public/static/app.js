@@ -171,6 +171,31 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// Navigation dropdown hover effects
+document.addEventListener('DOMContentLoaded', function() {
+  const navDropdowns = document.querySelectorAll('.group');
+  
+  navDropdowns.forEach(dropdown => {
+    const menu = dropdown.querySelector('.absolute');
+    
+    dropdown.addEventListener('mouseenter', () => {
+      if (menu) {
+        menu.style.transform = 'translateY(0)';
+        menu.style.opacity = '1';
+        menu.style.visibility = 'visible';
+      }
+    });
+    
+    dropdown.addEventListener('mouseleave', () => {
+      if (menu) {
+        menu.style.transform = 'translateY(-10px)';
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+      }
+    });
+  });
+});
+
 // Add loading animation to buttons with external links
 document.addEventListener('click', function(e) {
   const target = e.target.closest('a');
